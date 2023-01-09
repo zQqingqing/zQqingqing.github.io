@@ -1,4 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-01T19:00:35+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Who owns the copyright for an AI generated creative work?</title><link href="http://localhost:4000/AI-and-intellectual-property.html" rel="alternate" type="text/html" title="Who owns the copyright for an AI generated creative work?" /><published>2021-04-20T00:00:00+08:00</published><updated>2021-04-20T00:00:00+08:00</updated><id>http://localhost:4000/AI-and-intellectual-property</id><content type="html" xml:base="http://localhost:4000/AI-and-intellectual-property.html"><![CDATA[<p>Recently I was <a href="https://www.rollingstone.com/music/music-features/nirvana-kurt-cobain-ai-song-1146444/">reading an article</a> about a cool project that intends to have a neural network create songs of the late club of the 27 (artists that have tragically died at age 27 or near, and in the height of their respective careers), artists such as Amy Winehouse, Jimmy Hendrix, Curt Cobain and Jim Morrison.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-09T23:09:48+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note 1</title><link href="http://localhost:4000/statistics-note1.html" rel="alternate" type="text/html" title="Statistics Note 1" /><published>2023-01-09T12:30:20+08:00</published><updated>2023-01-09T12:30:20+08:00</updated><id>http://localhost:4000/statistics-note1</id><content type="html" xml:base="http://localhost:4000/statistics-note1.html"><![CDATA[<h1 id="statistics">Statistics</h1>
+
+<p>This is note1 based on MIT 18.650 and <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
+
+<hr />
+
+<h3 id="1big-pictrue">1.Big pictrue</h3>
+<center><img src="./assets/img/posts/20230109/statistics1.png" /></center>
+
+<p>When an ouput is predicted, we need its probability. When that output is measured,we need its statistics.</p>
+
+<h3 id="2meanvariance">2.Mean,Variance</h3>
+
+<p><strong>Sample mean</strong> : $m=\mu=\frac{1}{N}(x_{1}+x_{2}+\cdots+x_{N})$<br />
+<strong>Expected Value</strong> : $m=E[x]=p_{1}x_{1}+p_{2}x_{2}+\cdots+p_{n}x_{n}$</p>
+
+<p>Law of Large Numbers: $\mu\to E[x]$ , as N increases.</p>
+
+<p><strong>Sample Variance</strong>:<br />
+$S^{2}=\frac{1}{N-1}[(x_{1}-m)^2+(x_{2}-m)^2+\cdots +(x_{N}-m)^2]$<br />
+<strong>Variance</strong>: $\sigma^2=E[(x-E[x])^2]=p_1(x_1-m)^2+p_2(x_2-m)^2+\cdots +p_n(x_n-m)^2$</p>
+
+<p>The variance $\sigma ^2$ measures the expected distance(squared) from the expected mean E[x]. <br />
+The sample variance measures actual distance(squared) form the actual sample mean $\mu$.</p>
+
+<p><strong>Notice!</strong> : the denominator in sample variance is <strong>N-1</strong>,so that $S^2$ is unbiased estimate of $\sigma^2$. (Bessel’s Correction)</p>
+
+<p>Proof：\(E[S^2]=E[\frac{1}{N-1}\sum(x_i-m)^2]=\frac{1}{N-1}E[\sum x_i^2-2\sum x_im+\sum m^2] \\=\frac{1}{N-1}E[\sum x_i^2-Nm^2]=\frac{1}{N-1}[E[\sum x_i^2]-E[Nm^2]]\)</p>
+
+<p>Notice that:</p>
+
+<p>\(\begin{align*}
+  E[\sum x_i^2] &amp;= \sum E[x_i^2] \\
+    &amp;= \sum (var(x_i)+E[x_i]^2) \\
+    &amp;= N(\sigma^2 +\mu^2)
+\end{align*}\) <br />
+similarly:</p>
+
+<p>\(\begin{align*}
+  E[Nm^2] &amp;= N E[m^2] \\
+    &amp;=  N(var(m)+E[m]^2) \\
+    &amp;= N(\frac{1}{N}\sigma^2+\mu^2)
+\end{align*}\)<br />
+Therefore:</p>
+<p style="text-align:center">$$E[S^2]=\frac{1}{N-1}[(N-1)\sigma^2]=\sigma^2$$</p>
+
+<h3 id="3probability-distributions">3.Probability Distributions</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>distribution</th>
+      <th style="text-align: right">description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Binomial</td>
+      <td style="text-align: right">Tossing a coin n times</td>
+    </tr>
+    <tr>
+      <td>Poisson</td>
+      <td style="text-align: right">Rare evernts</td>
+    </tr>
+    <tr>
+      <td>Exponential</td>
+      <td style="text-align: right">Forgetting the past</td>
+    </tr>
+    <tr>
+      <td>Gaussion</td>
+      <td style="text-align: right">Averages of many tries</td>
+    </tr>
+    <tr>
+      <td>Log-normal</td>
+      <td style="text-align: right">Logaithm has normal distribution</td>
+    </tr>
+    <tr>
+      <td>Chi-squared</td>
+      <td style="text-align: right">Distance squared in n demensions</td>
+    </tr>
+    <tr>
+      <td>Multivariable Gaussian</td>
+      <td style="text-align: right">Probabilities for a vector</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="binomial"><strong>Binomial</strong></h4>
+<p>\(\mu = np,\sigma^2=np(1-p)\)</p>
+<h4 id="poisson"><strong>Poisson</strong></h4>
+<p>\(p\to0,n\to\infty,np=\lambda\)<br />
+binomial 
+$p_{0,n}=(1-p)^n=(1-\frac{\lambda}{n})^n\to e^{-\lambda}$
+$p_{1,n}=np(1-p)^{n-1}=\frac{\lambda}{1-p}(1-\frac{\lambda}{n})^n\to \lambda e^{-\lambda}$</p>
+
+<h4 id="poisson-probability"><strong>Poisson probability</strong></h4>
+<p>\(P_k=\frac{\lambda ^k}{k!}e^{-\lambda}\)<br />
+\(\mu=\lambda,\sigma^2=\lambda\)</p>
+
+<h4 id="exponential-distribution"><strong>Exponential distribution</strong></h4>
+<p>It describes the <strong>waiting time</strong> in a poisson process.(continous,memoryless)</p>
+
+<p>\(p(x)=\lambda e^{-\lambda x}(x\ge 0) ,F(t)=1-e^{-\lambda t}\)<br />
+\(\mu=\frac{1}{\lambda},\sigma^2=\frac{1}{\lambda ^2}\)</p>
+
+<h4 id="chi-squared-distribution"><strong>Chi-squared Distribution</strong></h4>
+<p>\(\chi ^2_{n}=\sum x_{i}^2\)<br />
+where $x_{i}$ are independent standard normal r.v.</p>
+
+<p>The Gamma function<br />
+\(\Gamma(n)=(n-1)!\).</p>
+<h5 id="typical-use--">Typical use  :</h5>
+<p>$S^2$ is a sum of squares with $n-1$degree freedom. It has the probability distribution $p_{n-1}$for $\chi_{n-1} ^2$<br />
+Example:<br />
+\(for\  n=2,S^2=\frac{1}{2}(x_1-x_2)^2\)</p>]]></content><author><name>zQqingqing</name></author><category term="statistics" /><summary type="html"><![CDATA[Statistics note1.]]></summary></entry><entry><title type="html">Who owns the copyright for an AI generated creative work?</title><link href="http://localhost:4000/AI-and-intellectual-property.html" rel="alternate" type="text/html" title="Who owns the copyright for an AI generated creative work?" /><published>2021-04-20T00:00:00+08:00</published><updated>2021-04-20T00:00:00+08:00</updated><id>http://localhost:4000/AI-and-intellectual-property</id><content type="html" xml:base="http://localhost:4000/AI-and-intellectual-property.html"><![CDATA[<p>Recently I was <a href="https://www.rollingstone.com/music/music-features/nirvana-kurt-cobain-ai-song-1146444/">reading an article</a> about a cool project that intends to have a neural network create songs of the late club of the 27 (artists that have tragically died at age 27 or near, and in the height of their respective careers), artists such as Amy Winehouse, Jimmy Hendrix, Curt Cobain and Jim Morrison.</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tjzOzuKQhSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 
