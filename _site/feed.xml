@@ -1,6 +1,123 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-09T23:09:48+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note 1</title><link href="http://localhost:4000/statistics-note1.html" rel="alternate" type="text/html" title="Statistics Note 1" /><published>2023-01-09T12:30:20+08:00</published><updated>2023-01-09T12:30:20+08:00</updated><id>http://localhost:4000/statistics-note1</id><content type="html" xml:base="http://localhost:4000/statistics-note1.html"><![CDATA[<h1 id="statistics">Statistics</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-19T19:15:09+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note2</title><link href="http://localhost:4000/statistics-note2.html" rel="alternate" type="text/html" title="Statistics Note2" /><published>2023-01-19T09:30:20+08:00</published><updated>2023-01-19T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note2</id><content type="html" xml:base="http://localhost:4000/statistics-note2.html"><![CDATA[<h1 id="statistics-note2">Statistics Note2</h1>
 
-<p>This is note1 based on MIT 18.650 and <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
+<p>This is note2 based on MIT 18.650 .</p>
+
+<hr />
+
+<h3 id="1trinity-of-statistical-inference">1.Trinity of statistical inference</h3>
+<p>1.Estimation<br />
+2.Confidence intervals<br />
+3.Hypothesis testing</p>
+
+<h3 id="2statistical-model">2.Statistical model</h3>
+<p>\((E,\rm (I\!P_\theta)_{\theta \in \Theta})\)<br />
+E: Sample space</p>
+
+<p>$(P_\theta)_{\theta \in \Theta}$ is a family of probability</p>
+
+<p>$\Theta$:parameter set</p>
+
+<h3 id="3estimation">3.Estimation</h3>
+<h4 id="parameter-estimation">Parameter Estimation</h4>
+
+<p>Statistic: Any measurable <strong>function</strong> of the sample, e.g.,<br />
+$\bar Xn, maxX_i, X_1 + log(1 + |Xn|), sample\ variance, etc..$</p>
+
+<p>Estimator of $\theta$: Any statistic whose expression does not
+depend on $\theta$.  (<strong>r.v.</strong>)
+\(\hat{\theta}_n\to\theta\)<br />
+Asymptotically normal:<br />
+\(\sqrt{n}(\hat{\theta}_n-\theta)\to N(0,\sigma^2)\)</p>
+
+<h4 id="bias-of-an-estimator">Bias of an estimator</h4>
+<p>\(bias(\hat{\theta}_n)=E[\hat{\theta}_n]-\theta\)
+If bias = 0, we say $\hat{\theta}_n$ is <strong>unbiased</strong>.</p>
+
+<h4 id="quadratic-risk">Quadratic risk</h4>
+<p>Idea: We want estimators to have <strong>low bias</strong> and <strong>low variance</strong> at the same time.<br />
+Quadratic risk:\(R(\hat{\theta}_n)=E[(\hat{\theta}_n-\theta)^2]=Var(\hat{\theta}_n)+bias(\hat{\theta}_n)^2\)</p>
+<h3 id="4-confidence-intervals">4. Confidence intervals</h3>
+<p>Let $(E,\rm (I!P_\theta)_{\theta \in \Theta})$be a statistical model based on observations $X_1,\cdots,X_n$. Let $\alpha\in(0,1)$</p>
+<h4 id="confidence-interval-ci-of-level-1-alpha-for-theta">Confidence interval (C.I.) of level 1-$\alpha$ for $\theta$:</h4>
+<p>Any <strong>random</strong> (depending on $X_1,\cdots,X_n$. Let $\alpha\in(0,1)$) interval $I$ whose boundaries do not depend on $\theta$ and such that<br />
+\(\rm I\!P_\theta[\theta \in I]\ge 1-\alpha,\forall \theta \in \Theta\)</p>
+
+<p>We bulid an <strong>error bar</strong> around estimator. It is also worth noticing that $p$ ( or $\theta$ ) is a <strong>deterministic</strong> number, whereas $\bar R_n $ is a <strong>r.v.</strong> , $I$ is produced based on  $\bar R_n $.</p>
+
+<p>example (for Bernoulli, $R_i \in Ber(p)$):<br />
+\(\sqrt{n}\frac{\bar{R_n}-p}{\sqrt{p(1-p)}}\stackrel{(d)}{\longrightarrow} N(0,1)\)
+which is:
+\(\sqrt{n}({\bar{R_n}-p)}\stackrel{(d)}{\longrightarrow} N(0,\sigma^2)\)</p>
+
+<p>By CDF:<br />
+\(\rm I\!P[|\bar R_n-p|\ge x] \approx 2(1-\phi(\frac{x\sqrt{n}}{\sqrt{p(1-p)}}))=\alpha\)</p>
+
+<p>We can solve for x (use the notation of <strong>Quantile</strong>):<br />
+\(\frac{x\sqrt{n}}{\sqrt{p(1-p)}}=\phi^{-1}(1-\frac{\alpha}{2})=q_{\frac{\alpha}{2}}\)</p>
+
+<p>So we can get the interval:<br />
+\(\bar R_n \in[\bar R_n-\frac{q_{\frac{\alpha}{2}}\sqrt{p(1-p)}}{\sqrt{n}},\bar R_n+\frac{q_{\frac{\alpha}{2}}\sqrt{p(1-p)}}{\sqrt{n}}]\)<br />
+But this is <strong>not</strong> a confidence interval (depends on p).</p>
+<h5 id="solution-1-conservative-bound">Solution 1: Conservative Bound</h5>
+<p>\(p(1-p) \le \frac{1}{4}\)</p>
+<h5 id="solution-2-solving-the-quadratic-equation-for-p">Solution 2: Solving the (quadratic) equation for p</h5>
+<p>We have the system of two inequalities in p:<br />
+\(\bar R_n-\frac{q_{\frac{\alpha}{2}}\sqrt{p(1-p)}}{\sqrt{n}}\le p \le \bar R_n+\frac{q_{\frac{\alpha}{2}}\sqrt{p(1-p)}}{\sqrt{n}}\)
+Each is a quadratic inequality in p of the form：<br />
+\((p-\bar R_n)^2 \le \frac
+{q_\frac{\alpha}{2}^2 p(1-p)}
+{n}\)
+solve $p_1,p_2$ to get the interval$[p_1,p_2]$</p>
+<h5 id="solution-3-plug-in">Solution 3: Plug-in</h5>
+<p>(by slutsky)</p>
+<h4 id="the-delta-method">The Delta Method</h4>
+<p>Let $Z_n$ be a sequence of r.v.that satisfies<br />
+\(\sqrt{n}(Z_n-\theta)\xrightarrow[n\to \infty]{(d)} N(0,\sigma^2)\)<br />
+Let $g:\rm I!R \to \rm I!R$ be continuously differentiable at the point $\theta$<br />
+Then<br />
+\(\sqrt{n}(g(Z_n)-g(\theta))\xrightarrow[n\to \infty]{(d)} N(0,g^{'}(\theta)^2\sigma^2)\)</p>
+<h3 id="hypothesis-testing">Hypothesis testing</h3>
+<h4 id="statistical-formulation">Statistical formulation</h4>
+<p>Consider a sample of $X_1,X_2,\cdots ,X_n$ of i.i.d.  r.v. and a statistical model $(E,\rm (I!P_\theta)_{\theta \in \Theta})$. 
+Let $\Theta _0$ and $\Theta _1$ be disjoint subsets of $\Theta$.</p>
+
+<p>Consider the two hypotheses:<br />
+\(H_0 : \theta \in \Theta _0\)<br />
+\(H_1: \theta \in \Theta _1\)</p>
+
+<p>$H_0$ is the <strong>null hypothesis</strong>, $H_1$ is the <strong>alternative hypothesis</strong>.</p>
+<h4 id="asymmetry-in-the-hypothesis">Asymmetry in the hypothesis</h4>
+<p>$H_0$ and $ H_1$ <strong>do not</strong> play a symmetric role: the data is is only used to try to disprove $H_0$.<br />
+In particular lack of evidence, does not mean that $H_0$ is true.<br />
+A test is a statistic $\psi \in${ $0,1$ } such that:<br />
+If $\psi =0$ ,$H_0$ is <strong>not rejected</strong>.<br />
+If $\psi =1$ ,$H_0$ is <strong>rejected</strong>.</p>
+
+<h4 id="errors">Errors</h4>
+<p>Type 1 error of a test (rejecting $H_0$ when it is actually true)  :  $\alpha _\psi$</p>
+
+<p>Type 2 error of a test (not rejecting $H_0$ although $H_1$ is actually true)</p>
+<h4 id="level">Level</h4>
+<p>A test $\psi$ has level $\alpha$ (error 1) if<br />
+\(\alpha _\psi (\theta) \le \alpha\)</p>
+<h4 id="one-sided-vs-two-sided-tests">One-sided vs two-sided tests</h4>
+<p>If $H_1：\theta \ne \theta _0$ : <strong>two-sided test</strong><br />
+If $H_1：\theta \gt \theta _0$ or $H_1：\theta \lt \theta _0$: <strong>one-sided test</strong></p>
+<h4 id="examplebernoulli">Example(Bernoulli)</h4>
+<p>\(H_0: p\le0.33,\ H_1:p\ge0.33\)
+Reject if $\hat p = \bar X_n \gt \lambda$  (to be chosen later)<br />
+\(max\ _{p\le0.33}\rm I\!P_\theta[\bar X_n \gt \lambda]\to \alpha\ (Error1)\)</p>
+
+<p>By normalization:<br />
+\(\rm I\!P_\theta[\frac{\sqrt n(\bar X_n-p)}{\sqrt{p(1-p)}} \gt \frac{\sqrt n(\lambda-p)}{\sqrt{p(1-p)}}]\to \alpha\)</p>
+
+<p>So the RHS: $q_\alpha$ or $q_{1-\alpha}$(less than)</p>
+<h4 id="p-value">p-value</h4>
+<p>Definition: the <strong>smallest</strong> (asymptotic) level $\alpha$  at which $\psi_\alpha$ rejects $H_0$<br />
+Golden rule:<br />
+$\alpha \ge p$, $H_0$ is rejected.$H_0$ is more likely to be rejected as $\alpha$ increases.</p>]]></content><author><name>zQqingqing</name></author><category term="statistics" /><summary type="html"><![CDATA[Statistics Note2.]]></summary></entry><entry><title type="html">Statistics Note1</title><link href="http://localhost:4000/statistics-note1.html" rel="alternate" type="text/html" title="Statistics Note1" /><published>2023-01-09T12:30:20+08:00</published><updated>2023-01-09T12:30:20+08:00</updated><id>http://localhost:4000/statistics-note1</id><content type="html" xml:base="http://localhost:4000/statistics-note1.html"><![CDATA[<h1 id="statistics-note1">Statistics Note1</h1>
+
+<p>This is note1 based on <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
 
 <hr />
 
@@ -112,7 +229,7 @@ where $x_{i}$ are independent standard normal r.v.</p>
 <h5 id="typical-use--">Typical use  :</h5>
 <p>$S^2$ is a sum of squares with $n-1$degree freedom. It has the probability distribution $p_{n-1}$for $\chi_{n-1} ^2$<br />
 Example:<br />
-\(for\  n=2,S^2=\frac{1}{2}(x_1-x_2)^2\)</p>]]></content><author><name>zQqingqing</name></author><category term="statistics" /><summary type="html"><![CDATA[Statistics note1.]]></summary></entry><entry><title type="html">Who owns the copyright for an AI generated creative work?</title><link href="http://localhost:4000/AI-and-intellectual-property.html" rel="alternate" type="text/html" title="Who owns the copyright for an AI generated creative work?" /><published>2021-04-20T00:00:00+08:00</published><updated>2021-04-20T00:00:00+08:00</updated><id>http://localhost:4000/AI-and-intellectual-property</id><content type="html" xml:base="http://localhost:4000/AI-and-intellectual-property.html"><![CDATA[<p>Recently I was <a href="https://www.rollingstone.com/music/music-features/nirvana-kurt-cobain-ai-song-1146444/">reading an article</a> about a cool project that intends to have a neural network create songs of the late club of the 27 (artists that have tragically died at age 27 or near, and in the height of their respective careers), artists such as Amy Winehouse, Jimmy Hendrix, Curt Cobain and Jim Morrison.</p>
+\(for\  n=2,S^2=\frac{1}{2}(x_1-x_2)^2\)</p>]]></content><author><name>zQqingqing</name></author><category term="statistics" /><summary type="html"><![CDATA[Statistics Note1.]]></summary></entry><entry><title type="html">Who owns the copyright for an AI generated creative work?</title><link href="http://localhost:4000/AI-and-intellectual-property.html" rel="alternate" type="text/html" title="Who owns the copyright for an AI generated creative work?" /><published>2021-04-20T00:00:00+08:00</published><updated>2021-04-20T00:00:00+08:00</updated><id>http://localhost:4000/AI-and-intellectual-property</id><content type="html" xml:base="http://localhost:4000/AI-and-intellectual-property.html"><![CDATA[<p>Recently I was <a href="https://www.rollingstone.com/music/music-features/nirvana-kurt-cobain-ai-song-1146444/">reading an article</a> about a cool project that intends to have a neural network create songs of the late club of the 27 (artists that have tragically died at age 27 or near, and in the height of their respective careers), artists such as Amy Winehouse, Jimmy Hendrix, Curt Cobain and Jim Morrison.</p>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tjzOzuKQhSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
 

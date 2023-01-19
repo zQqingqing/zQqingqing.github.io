@@ -2,18 +2,18 @@
 layout: post
 read_time: true
 show_date: true
-title:  Statistics Note 1
+title:  Statistics Note1
 date:   2023-01-08 22:30:20 -0600
-description: Statistics note1.
+description: Statistics Note1.
 tags: [statistics]
 author: zQqingqing
 img: posts/20230109/statistics1.png 
 github:  
 mathjax: yes
 ---
-# Statistics
+# Statistics Note1
 
-This is note1 based on MIT 18.650 and *Linear Algebra And Learning From Data* by *Gilbert Strang*.
+This is note1 based on *Linear Algebra And Learning From Data* by *Gilbert Strang*.
 
 ---
 
