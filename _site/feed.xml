@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-19T19:15:09+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note2</title><link href="http://localhost:4000/statistics-note2.html" rel="alternate" type="text/html" title="Statistics Note2" /><published>2023-01-19T09:30:20+08:00</published><updated>2023-01-19T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note2</id><content type="html" xml:base="http://localhost:4000/statistics-note2.html"><![CDATA[<h1 id="statistics-note2">Statistics Note2</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-18T23:16:11+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note2</title><link href="http://localhost:4000/statistics-note2.html" rel="alternate" type="text/html" title="Statistics Note2" /><published>2023-01-19T09:30:20+08:00</published><updated>2023-01-19T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note2</id><content type="html" xml:base="http://localhost:4000/statistics-note2.html"><![CDATA[<h1 id="statistics-note2">Statistics Note2</h1>
 
 <p>This is note2 based on MIT 18.650 .</p>
 
@@ -76,7 +76,7 @@ solve $p_1,p_2$ to get the interval$[p_1,p_2]$</p>
 Let $g:\rm I!R \to \rm I!R$ be continuously differentiable at the point $\theta$<br />
 Then<br />
 \(\sqrt{n}(g(Z_n)-g(\theta))\xrightarrow[n\to \infty]{(d)} N(0,g^{'}(\theta)^2\sigma^2)\)</p>
-<h3 id="hypothesis-testing">Hypothesis testing</h3>
+<h3 id="5hypothesis-testing">5.Hypothesis testing</h3>
 <h4 id="statistical-formulation">Statistical formulation</h4>
 <p>Consider a sample of $X_1,X_2,\cdots ,X_n$ of i.i.d.  r.v. and a statistical model $(E,\rm (I!P_\theta)_{\theta \in \Theta})$. 
 Let $\Theta _0$ and $\Theta _1$ be disjoint subsets of $\Theta$.</p>

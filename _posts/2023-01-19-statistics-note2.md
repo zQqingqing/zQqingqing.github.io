@@ -90,7 +90,7 @@ $$\sqrt{n}(Z_n-\theta)\xrightarrow[n\to \infty]{(d)} N(0,\sigma^2)$$
 Let $g:\rm I\!R \to \rm I\!R$ be continuously differentiable at the point $\theta$  
 Then  
 $$\sqrt{n}(g(Z_n)-g(\theta))\xrightarrow[n\to \infty]{(d)} N(0,g^{'}(\theta)^2\sigma^2)$$  
-### Hypothesis testing  
+### 5.Hypothesis testing  
 #### Statistical formulation  
 Consider a sample of $X_1,X_2,\cdots ,X_n$ of i.i.d.  r.v. and a statistical model $(E,\rm (I\!P_\theta)_{\theta \in \Theta})$. 
 Let $\Theta _0$ and $\Theta _1$ be disjoint subsets of $\Theta$.  
