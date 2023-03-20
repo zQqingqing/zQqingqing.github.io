@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-20T19:49:43+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note3</title><link href="http://localhost:4000/statistics-note3.html" rel="alternate" type="text/html" title="Statistics Note3" /><published>2023-01-29T09:30:20+08:00</published><updated>2023-01-29T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note3</id><content type="html" xml:base="http://localhost:4000/statistics-note3.html"><![CDATA[<h1 id="statistics">Statistics</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-20T21:38:19+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Least Squares (pseudoinverse)</title><link href="http://localhost:4000/untitled.html" rel="alternate" type="text/html" title="Least Squares (pseudoinverse)" /><published>2023-03-20T09:30:20+08:00</published><updated>2023-03-20T09:30:20+08:00</updated><id>http://localhost:4000/untitled</id><content type="html" xml:base="http://localhost:4000/untitled.html"><![CDATA[<h1 id="least-squares">Least Squares</h1>
+
+<p>This is note1 based on  <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
+
+<hr />
+
+<h3 id="least-squares-1">Least Squares</h3>
+<p>Many applications lead to <strong>unsolvable</strong> linear equations $Ax=b$. The least squares method chooses $\hat x$ to make $||b-A\hat x||^2$ as <strong>small</strong> as possible.    Which is $(Ax-b)^T(Ax-b)$. Minimizing erorr means its derivatives are zero which leads to <strong>normal eqautions</strong> $A^TA\hat x=A^Tb$.</p>
+
+<h3 id="four-ways-to-solve">Four ways to solve</h3>
+<p>1.The SVD of A leads to its <strong>pseudoinverse</strong> $A^+$. Then $\hat x = A^+b$ :one short formula (This note)<br />
+2.$A^TA\hat x=A^Tb$ can be solved directly when A has <strong>independent columns</strong><br />
+3.The Gram-Schmidt idea produces <strong>orthogonal columns</strong> in Q which is $A=QR$.
+4.<strong>Minimize</strong> $||b-Ax||^2 + \delta^2||x||^2$</p>
+<h4 id="a-is-pseudoinverse-of-a">$A^+$ is Pseudoinverse of A</h4>
+
+<p>Recall from four subspaces</p>
+<center><img src="./assets/img/posts/20230320/foursubspaces.png" /></center>
+
+<p>When A multiplies a vector x in its rowspace (otherwise Ax = 0), this produces Ax in the column space. If A is invertible, then $A^+ =A^{-1}$, and we have $A^+Ax=x$ <strong>exactly when x is in the row space</strong>. And $AA^+b=b$ when b is in the column space.<br />
+We conclude:<br />
+$A$: Row space to column space<br />
+$A^+$: Column space to row space</p>
+<center><img src="./assets/img/posts/20230320/A.png" /></center>
+
+<h4 id="rules-to-get-pseudoinverse">Rules to get pseudoinverse</h4>
+<ol>
+  <li>If A has independent columns, then $A^+=(A^TA)^{-1}A^T$ and $A^+A=I$</li>
+  <li>If A has independent rows, then $A^+=A^T(AA^T)^{-1}$ and $AA^+=I$</li>
+  <li>A diagonal matrix $\sum_{m<em>n}$ has $\sum ^+ _{n</em>m}$</li>
+</ol>
+
+<p>for <strong>all matrices</strong>: $A=U\sum V^T$ (SVD) , $A^+=V\sum^+U^T$</p>
+
+<h5 id="the-least-squares-solution-to-axb-is-x--ab">The Least Squares Solution to $Ax=b$ is $x^+ = A^+B$</h5>
+<p>properties:<br />
+$x^+=A^+b$ makes $||b-Ax||^2$ as small as possible.<br />
+If another $\hat x$ achieves then $||x^+||\le||\hat x||$ (Minimum norm)</p>
+
+<p>We’re going to demonstrate these properties.</p>
+
+<p><strong>Squared error</strong> 
+$||b-Ax||^2=||b-U\Sigma V^Tx||^2=||U^Tb-\Sigma V^Tx||^2$ (since $U^TU=I$, multiply by $U^T$ doesn’t change its length)<br />
+Set $w=V^Tx$ to get $||U^Tb-\Sigma w||^2$ , and the best $w=\Sigma ^+U^T b$ which leads to $x^+ = A^+b$</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>When A has rank $r=n$, this is the only least square solution. But if there are nonezero vectors x in the nullspace of A (which implies $r &lt; n$), they can be added to $x^+$. the error $</td>
+      <td> </td>
+      <td>b-A(x+x^+)</td>
+      <td> </td>
+      <td>$ is not affected because $Ax = 0$. But the norm will grow to $</td>
+      <td> </td>
+      <td>x^+</td>
+      <td> </td>
+      <td>^2+</td>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td>^2$.</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>zQqingqing</name></author><category term="Least Squares" /><summary type="html"><![CDATA[Least Squares and the first way to solve it.]]></summary></entry><entry><title type="html">Statistics Note3</title><link href="http://localhost:4000/statistics-note3.html" rel="alternate" type="text/html" title="Statistics Note3" /><published>2023-01-29T09:30:20+08:00</published><updated>2023-01-29T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note3</id><content type="html" xml:base="http://localhost:4000/statistics-note3.html"><![CDATA[<h1 id="statistics">Statistics</h1>
 
 <p>This is note3 based on  <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
 
@@ -192,7 +255,7 @@ $\alpha \ge p$, $H_0$ is rejected.$H_0$ is more likely to be rejected as $\alpha
 
 <hr />
 
-<h3 id="1big-pictrue">1.Big pictrue</h3>
+<h3 id="1big-picture">1.Big picture</h3>
 <center><img src="./assets/img/posts/20230109/statistics1.png" /></center>
 
 <p>When an ouput is predicted, we need its probability. When that output is measured,we need its statistics.</p>
@@ -8098,71 +8161,4 @@ qXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNDUuMTAw
   <li>save and load trained model to file</li>
 </ul>
 
-<p>I will get to it soon…</p>]]></content><author><name>Armando Maynez</name></author><category term="machine learning" /><category term="coding" /><category term="neural networks" /><category term="python" /><summary type="html"><![CDATA[Single neuron perceptron that classifies elements learning quite quickly.]]></summary></entry><entry><title type="html">Conway’s Game of Life</title><link href="http://localhost:4000/conways-game-of-life.html" rel="alternate" type="text/html" title="Conway’s Game of Life" /><published>2021-02-11T03:32:20+08:00</published><updated>2021-02-11T03:32:20+08:00</updated><id>http://localhost:4000/conways-game-of-life</id><content type="html" xml:base="http://localhost:4000/conways-game-of-life.html"><![CDATA[<p>I&nbsp;am lately trying to take on coding again. It had always been a part of my life since my early years when I&nbsp;learned to program a Tandy Color Computer at the age of 8, the good old days.</p>
-
-<p><img src="./assets/img/posts/20210210/300px-TRS-80_Color_Computer_3.jpg" alt="Tandy Color Computer TRS80 III" /><small>Tandy Color Computer TRS80 III</small></p>
-
-<p>Having already programed in Java, C# and of course BASIC, I&nbsp;thought it would be a great idea to learn Python since I&nbsp;have great interest in data science and machine learning, and those two topics seem to have an avid community within Python coders.</p>
-
-<p>For one of my starter quick programming tasks, I&nbsp;decided to code Conway's Game of Life, a very simple cellular automata that basically plays itself.</p>
-
-<p>The game consists of a grid of n size, and within each block of the grid a cell could either be dead or alive according to these rules:</p>
-
-<ul><li>If a cell has less than 2 neighbors, meaning contiguous alive cells, the cell will die of loneliness</li><li>If a cell has more than 3 neighbors, it will die of overpopulation</li><li>If an empty block has exactly 3 contiguous alive neighbors, a new cell will be born in that spot</li><li>If an alive cell has 2 or 3 alive neighbors, it continues to live</li></ul>
-
-<p><img src="./assets/img/posts/20210210/GameOfLife.gif" alt="Conway's rules for the Game of Life" /><small>Conway’s rules for the Game of Life</small></p>
-
-<p>To make it more of a challenge I&nbsp;also decided to implement an <em>"sparse" </em>method of recording the game board, this means that instead of the typical 2d array representing the whole board, I&nbsp;will only record the cells which are alive. Saving a lot of memory space and processing time, while adding some spice to the challenge.</p>
-
-<p>The trickiest part was figuring out how to calculate which empty blocks had exactly 3 alive neighbors so that a new cell will spring to life there, this is trivial in the case of recording the whole grid, because we just iterate all over the board and find the alive neighbors of ALL&nbsp;the blocks in the grid, but in the case of only keeping the alive cells proved quite a challenge.</p>
-
-<p>In the end the algorithm ended up as follows:</p>
-
-<ol><li>Iterate through all the alive cells and get all of their neighbors</li></ol>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_neighbors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cell</span><span class="p">):</span>
-    <span class="n">neighbors</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-                <span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="p">(</span><span class="n">cell</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">size_x</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="p">(</span><span class="n">cell</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">size_y</span><span class="p">):</span>
-                    <span class="n">neighbors</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">cell</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">cell</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">y</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">neighbors</span>
-</code></pre></div></div>
-
-<ol start="2"><li>Mark all the neighboring blocks as having +1 neighbor each time a particular cell is encountered. This way, for each neighboring alive cell the counter of the particular block will increase, and in the end it will contain the total number of live cells which are contiguous to it.</li></ol>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">next_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">alive_neighbors</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">alive_cells</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">cell</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">alive_neighbors</span><span class="p">:</span>
-            <span class="n">alive_neighbors</span><span class="p">[</span><span class="n">cell</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-
-        <span class="n">neighbors</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">get_neighbors</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">neighbor</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">alive_neighbors</span><span class="p">:</span>
-                <span class="n">alive_neighbors</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">alive_neighbors</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-</code></pre></div></div>
-
-<p>The trick was using a dictionary to keep the record of the blocks that have alive neighbors and the cells who are alive in the current state but have zero alive neighbors (thus will die).</p>
-
-<p>With the dictionary it became easy just to add cells and increase their neighbor counter each time it was encountered as a neighbor of an alive cell.</p>
-
-<p>Having the dictionary now filled with all the cells that have alive neighbors and how many they have, it was just a matter of applying the rules of the game:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">alive_neighbors</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">alive_neighbors</span><span class="p">[</span><span class="n">cell</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">alive_neighbors</span><span class="p">[</span><span class="n">cell</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">alive_cells</span><span class="p">.</span><span class="n">discard</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
-    
-    <span class="k">elif</span> <span class="n">alive_neighbors</span><span class="p">[</span><span class="n">cell</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="bp">self</span><span class="p">.</span><span class="n">alive_cells</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>Notice that since I am keeping an array of the coordinates of only the cells who are alive, I could apply just 3 rules, die of loneliness, die of overpopulation and become alive from reproduction (exactly 3 alive neighbors) because the ones who have 2 or 3 neighbors and are already alive, can remain alive in the next iteration.</p>
-
-<p>I&nbsp;found it very interesting to implement the Game of Life like this, it was quite a refreshing challenge and I am beginning to feel my coding skills ramping up again.</p>]]></content><author><name>Armando Maynez</name></author><category term="coding" /><category term="python" /><summary type="html"><![CDATA[Taking on the challenge of picking up coding again through interesting small projects, this time it is the turn of Conway's Game of Life.]]></summary></entry></feed>
+<p>I will get to it soon…</p>]]></content><author><name>Armando Maynez</name></author><category term="machine learning" /><category term="coding" /><category term="neural networks" /><category term="python" /><summary type="html"><![CDATA[Single neuron perceptron that classifies elements learning quite quickly.]]></summary></entry></feed>

@@ -17,7 +17,7 @@ This is note1 based on *Linear Algebra And Learning From Data* by *Gilbert Stran
 
 ---
 
-### 1.Big pictrue
+### 1.Big picture
 <center><img src='./assets/img/posts/20230109/statistics1.png'></center>
 
 When an ouput is predicted, we need its probability. When that output is measured,we need its statistics.

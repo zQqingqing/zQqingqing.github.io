@@ -232,6 +232,55 @@
 
 
 	
+	<div id="Least Squares" class="hidden tag-master">
+		<h1>Least Squares</h1>
+		<div class="archive">
+			<div class="post-list">
+		    
+			
+
+				<div class="post">
+					<a class="post-list-title" href="./untitled.html">Least Squares (pseudoinverse)</a>
+					
+
+  <span class = "post-card-meta">
+  
+  
+    <span class="meta-pre"></span>
+  
+  
+    
+      
+      <span class="page_meta-date">
+        <time datetime="2023-03-20T09:30:20+08:00">March 20, 2023</time>
+      </span>
+    
+    
+      <span class="meta-sep"></span>
+    
+  
+  
+    
+    
+    <span class="page_meta-readtime">
+      
+        1 minute read
+      
+    </span>
+  
+  
+  </span>
+
+					<div class="post-excerpt">
+						<h1 id="least-squares">Least Squares</h1> <p>This is note1 based on <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p> <hr /> <h3 id="least-squares-1">Least Squares</h3> <p>Many applications lead to <strong>unsolvable</strong> linear equations $Ax=b$. The least squares method chooses $\hat x$ to make $||b-A\hat x||^2$ as <strong>small</strong> as possible. Which is $(Ax-b)^T(Ax-b)$. Minimizing erorr means its derivatives are zero which leads to <strong>normal eqautions</strong> $A^TA\hat x=A^Tb$.</p> <h3 id="four-ways-to-solve">Four ways to solve</h3> <p>1.The SVD of A leads to its <strong>pseudoinverse</strong> $A^+$. Then $\hat x = A^+b$ :one short formula (This note)<br /> 2.$A^TA\hat x=A^Tb$ can be solved directly when A has <strong>independent columns</strong><br /> 3.The...<a class="read-more" href="./untitled.html"> read more</a>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+
+	
 	<div id="artificial intelligence" class="hidden tag-master">
 		<h1>artificial intelligence</h1>
 		<div class="archive">
@@ -1328,7 +1377,7 @@
   </span>
 
 					<div class="post-excerpt">
-						<h1 id="statistics-note1">Statistics Note1</h1> <p>This is note1 based on <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p> <hr /> <h3 id="1big-pictrue">1.Big pictrue</h3> <center><img src="./assets/img/posts/20230109/statistics1.png" /></center> <p>When an ouput is predicted, we need its probability. When that output is measured,we need its statistics.</p> <h3 id="2meanvariance">2.Mean,Variance</h3> <p><strong>Sample mean</strong> : $m=\mu=\frac{1}{N}(x_{1}+x_{2}+\cdots+x_{N})$<br /> <strong>Expected Value</strong> : $m=E[x]=p_{1}x_{1}+p_{2}x_{2}+\cdots+p_{n}x_{n}$</p> <p>Law of Large Numbers: $\mu\to E[x]$ , as N increases.</p> <p><strong>Sample Variance</strong>:<br /> $S^{2}=\frac{1}{N-1}[(x_{1}-m)^2+(x_{2}-m)^2+\cdots +(x_{N}-m)^2]$<br /> <strong>Variance</strong>: $\sigma^2=E[(x-E[x])^2]=p_1(x_1-m)^2+p_2(x_2-m)^2+\cdots +p_n(x_n-m)^2$</p> <p>The variance $\sigma ^2$ measures the expected distance(squared) from the expected mean E[x]. <br /> The sample variance measures actual distance(squared) form the actual sample mean $\mu$.</p> <p><strong>Notice!</strong>...<a class="read-more" href="./statistics-note1.html"> read more</a>
+						<h1 id="statistics-note1">Statistics Note1</h1> <p>This is note1 based on <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p> <hr /> <h3 id="1big-picture">1.Big picture</h3> <center><img src="./assets/img/posts/20230109/statistics1.png" /></center> <p>When an ouput is predicted, we need its probability. When that output is measured,we need its statistics.</p> <h3 id="2meanvariance">2.Mean,Variance</h3> <p><strong>Sample mean</strong> : $m=\mu=\frac{1}{N}(x_{1}+x_{2}+\cdots+x_{N})$<br /> <strong>Expected Value</strong> : $m=E[x]=p_{1}x_{1}+p_{2}x_{2}+\cdots+p_{n}x_{n}$</p> <p>Law of Large Numbers: $\mu\to E[x]$ , as N increases.</p> <p><strong>Sample Variance</strong>:<br /> $S^{2}=\frac{1}{N-1}[(x_{1}-m)^2+(x_{2}-m)^2+\cdots +(x_{N}-m)^2]$<br /> <strong>Variance</strong>: $\sigma^2=E[(x-E[x])^2]=p_1(x_1-m)^2+p_2(x_2-m)^2+\cdots +p_n(x_n-m)^2$</p> <p>The variance $\sigma ^2$ measures the expected distance(squared) from the expected mean E[x]. <br /> The sample variance measures actual distance(squared) form the actual sample mean $\mu$.</p> <p><strong>Notice!</strong>...<a class="read-more" href="./statistics-note1.html"> read more</a>
 					</div>
 				</div>
 			
@@ -1453,6 +1502,9 @@
 <div class="tag-cloud">
     
         <ul class="tags">
+            
+                
+                <li><a href="./tag.html?tag=Least+Squares" class="tag">Least Squares <span>(1)</span></a></li>
             
                 
                 <li><a href="./tag.html?tag=artificial+intelligence" class="tag">artificial intelligence <span>(3)</span></a></li>
