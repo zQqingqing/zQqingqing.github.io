@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-18T23:16:11+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note2</title><link href="http://localhost:4000/statistics-note2.html" rel="alternate" type="text/html" title="Statistics Note2" /><published>2023-01-19T09:30:20+08:00</published><updated>2023-01-19T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note2</id><content type="html" xml:base="http://localhost:4000/statistics-note2.html"><![CDATA[<h1 id="statistics-note2">Statistics Note2</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-20T19:49:43+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Statistics Note3</title><link href="http://localhost:4000/statistics-note3.html" rel="alternate" type="text/html" title="Statistics Note3" /><published>2023-01-29T09:30:20+08:00</published><updated>2023-01-29T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note3</id><content type="html" xml:base="http://localhost:4000/statistics-note3.html"><![CDATA[<h1 id="statistics">Statistics</h1>
+
+<p>This is note3 based on  <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
+
+<hr />
+
+<h3 id="1covariance-matrices-and-joint-probabilities">1.Covariance Matrices and Joint Probabilities</h3>
+<p>Linear algebraenters When we run M different experiments. For example, we measure <strong>age and height and weight</strong> to get a vector $m=(m_1,m_2,m_3)$ in which $m=3$.</p>
+
+<p>A matrix becomes involved when we look at variances. Each experiment (dimension) will have a sample variance or expected variance.  If we measure age and height and weight for children, the results will be strongly <strong>correlated</strong>. The connection of variables is denoted by <strong>covariance</strong>.</p>
+
+<p>\(\sigma_{12}=E[(m_1-\mu_1)(m_2-\mu_2)]\)<br />
+also:
+\(\sigma_{xy}=E[(X-\bar X)(Y-\bar Y)]\)<br />
+Joint probability $p_{ij}$ : experiment1 produces i and experiment2 produces j.<br />
+\(\sigma_{12}=\sum_{i}\sum_{j}p_{ij}(x_i-m_1)(y_j-m_2)\)</p>
+
+<p>Probability Matrix:<br />
+\(\begin{pmatrix}
+	p_{11} &amp; p_{12}  \\
+	p_{21} &amp; p_{22}  \\
+\end{pmatrix}\)</p>
+
+<p>For independent trials we have $\sigma_{ij}(i\ne j) = 0$ , because $p_{ij}=p_ip_j$</p>
+
+<p>Covariance Matrix (By definition):<br />
+\(V = \sum \sum p_{ij}
+\begin{pmatrix}
+	(x_i-m_1)^2 &amp; (x_i-m_1)(y_j-m_2)  \\
+	(x_i-m_1)(y_j-m_2) &amp; (y_j-m_2)^2  \\
+\end{pmatrix}\)</p>
+
+<p>On the diagonal, we are getting the ordinary variances $\sigma_1^2, \sigma_2^2$ :<br />
+\(V_{11} = \sum\sum  p_{ij}	(x_i-m_1)^2=\sum p_i	(x_i-m_1)^2=\sigma_{1}^2\)</p>
+
+<p>We can write V in vector multiplication form:</p>
+
+<p>$
+\begin{bmatrix}
+	(x_i-m_1)^2 &amp; (x_i-m_1)(y_j-m_2)  <br />
+	(x_i-m_1)(y_j-m_2) &amp; (y_j-m_2)^2  <br />
+\end{bmatrix}
+$ $=\begin{bmatrix}
+	x_i-m_1 <br />
+	y_j-m_2   <br />
+\end{bmatrix} \begin{bmatrix}
+	x_i-m_1 &amp; y_j-m_2  <br />
+\end{bmatrix}$</p>
+
+<p>$=(X-\bar X)(X-\bar X)^T$</p>
+
+<p>We know that V is <strong>sum of rank 1 matrices</strong> and <strong>symmetric</strong> matrix (Positive Semidefinite also).<br />
+\(V=\sum p_{ij}(X-\bar X)(X-\bar X)^T\)<br />
+for continous r.v.:<br />
+\(V=\int p_{ij}(X-\bar X)(X-\bar X)^T\)</p>
+
+<h4 id="the-covariance-matrix-for-zax">The covariance matrix for $Z=AX$</h4>
+
+<p>$Z=AX$, $V_z=AV_XA^T$</p>
+
+<p>Example:<br />
+$A=\begin{bmatrix}
+1 &amp; 1 <br />
+\end{bmatrix}$ , $Z=X+Y$</p>
+
+<p>The variance of $Z$, denoted as $\sigma_z^2$, can be computed as:</p>
+
+<p>\(\begin{bmatrix}1&amp;1 \end{bmatrix}\begin{bmatrix}\sigma_x^2&amp;\sigma_{xy}\\\sigma_{xy}&amp; \sigma_y^2 \end{bmatrix}\begin{bmatrix}1\\1 \end{bmatrix}=\sigma_x^2+\sigma_y^2+2\sigma_{xy}\)</p>
+<h4 id="the-correlation-rho">The Correlation $\rho$</h4>
+<p>The correlation coefficient between $X$ and $Y$ is denoted as $\rho_{xy}$, and it satisfies the following inequality:
+\(-1\le \rho _{xy}=\frac{\sigma_{xy}}{\sigma_x\sigma_y} \le1\)
+We can standardize $X$ and $Y$ by dividing them with their respective standard deviations, i.e., $X=\frac{x}{\sigma_x}$ and $Y=\frac{y}{\sigma_y}$, so that they have zero mean and unit variance. The correlation coefficient $\rho_{xy}$ remains the same after standardization.</p>]]></content><author><name>zQqingqing</name></author><category term="statistics" /><summary type="html"><![CDATA[Statistics Note3.]]></summary></entry><entry><title type="html">Statistics Note2</title><link href="http://localhost:4000/statistics-note2.html" rel="alternate" type="text/html" title="Statistics Note2" /><published>2023-01-19T09:30:20+08:00</published><updated>2023-01-19T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note2</id><content type="html" xml:base="http://localhost:4000/statistics-note2.html"><![CDATA[<h1 id="statistics-note2">Statistics Note2</h1>
 
 <p>This is note2 based on MIT 18.650 .</p>
 
@@ -8094,123 +8165,4 @@ qXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNDUuMTAw
 
 <p>Notice that since I am keeping an array of the coordinates of only the cells who are alive, I could apply just 3 rules, die of loneliness, die of overpopulation and become alive from reproduction (exactly 3 alive neighbors) because the ones who have 2 or 3 neighbors and are already alive, can remain alive in the next iteration.</p>
 
-<p>I&nbsp;found it very interesting to implement the Game of Life like this, it was quite a refreshing challenge and I am beginning to feel my coding skills ramping up again.</p>]]></content><author><name>Armando Maynez</name></author><category term="coding" /><category term="python" /><summary type="html"><![CDATA[Taking on the challenge of picking up coding again through interesting small projects, this time it is the turn of Conway's Game of Life.]]></summary></entry><entry><title type="html">Single Neuron Perceptron</title><link href="http://localhost:4000/single-neuron-perceptron.html" rel="alternate" type="text/html" title="Single Neuron Perceptron" /><published>2021-01-26T03:32:20+08:00</published><updated>2021-01-26T03:32:20+08:00</updated><id>http://localhost:4000/single-neuron-perceptron</id><content type="html" xml:base="http://localhost:4000/single-neuron-perceptron.html"><![CDATA[<p>As an entry point to learning python and getting into Machine Learning, I decided to code from scratch the Hello World! of the field, a single neuron perceptron.</p>
-
-<h2 id="what-is-a-perceptron">What is a perceptron?</h2>
-
-<p>A perceptron is the basic building block of a neural network, it can be compared to a neuron, And its conception is what detonated the vast field of Artificial Intelligence nowadays.</p>
-
-<p>Back in the late 1950’s, a young <a href="https://en.wikipedia.org/wiki/Frank_Rosenblatt">Frank Rosenblatt</a> devised a very simple algorithm as a foundation to construct a machine that could learn to perform different tasks.</p>
-
-<p>In its essence, a perceptron is nothing more than a collection of values and rules for passing information through them, but in its simplicity lies its power.</p>
-
-<center><img src="./assets/img/posts/20210125/Perceptron.png" /></center>
-
-<p>Imagine you have a ‘neuron’ and to ‘activate’ it, you pass through several input signals, each signal connects to the neuron through a synapse, once the signal is aggregated in the perceptron, it is then passed on to one or as many outputs as defined. A perceptron is but a neuron and its collection of synapses to get a signal into it and to modify a signal to pass on.</p>
-
-<p>In more mathematical terms, a perceptron is an array of values (let’s call them weights), and the rules to apply such values to an input signal.</p>
-
-<p>For instance a perceptron could get 3 different inputs as in the image, lets pretend that the inputs it receives as signal are: $x_1 = 1, \; x_2 = 2\; and \; x_3 = 3$, if it’s weights are $w_1 = 0.5,\; w_2 = 1\; and \; w_3 = -1$ respectively, then what the perceptron will do when the signal is received is to multiply each input value by its corresponding weight, then add them up.</p>
-
-<p style="text-align:center">\(<br />
-\begin{align}
-\begin{split}
-\left(x_1 * w_1\right) + \left(x_2 * w_2\right) + \left(x_3 * w_3\right)
-\end{split}
-\end{align}
-\)</p>
-
-<p style="text-align:center">\(<br />
-\begin{align}<br />
-\begin{split}<br />
-\left(0.5 * 1\right) + \left(1 * 2\right) + \left(-1 * 3\right) = 0.5 + 2 - 3 = -0.5
-\end{split}<br />
-\end{align}<br />
-\)</p>
-
-<p>Typically when this value is obtained, we need to apply an “activation” function to smooth the output, but let’s say that our activation function is linear, meaning that we keep the value as it is, then that’s it, that is the output of the perceptron, -0.5.</p>
-
-<p>In a practical application, the output means something, perhaps we want our perceptron to classify a set of data and if the perceptron outputs a negative number, then we know the data is of type A, and if it is a positive number then it is of type B.</p>
-
-<p>Once we understand this, the magic starts to happen through a process called backpropagation, where we “educate” our tiny one neuron brain to have it learn how to do its job.</p>
-
-<tweet>The magic starts to happen through a process called backpropagation, where we "educate" our tiny one neuron brain to have it learn how to do its job.</tweet>
-
-<p>For this we need a set of data that it is already classified, we call this a training set. This data has inputs and their corresponding correct output. So we can tell the little brain when it misses in its prediction, and by doing so, we also adjust the weights a bit in the direction where we know the perceptron committed the mistake hoping that after many iterations like this the weights will be so that most of the predictions will be correct.</p>
-
-<p>After the model trains successfully we can have it classify data it has never seen before, and we have a fairly high confidence that it will do so correctly.</p>
-
-<p>The math behind this magical property of the perceptron is called gradient descent, and is just a bit of differential calculus that helps us convert the error the brain is having into tiny nudges of value of the weights towards their optimum. <a href="https://www.youtube.com/watch?v=aircAruvnKk&amp;list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi">This video series by 3 blue 1 brown explains it wonderfuly.</a></p>
-
-<p>My program creates a single neuron neural network tuned to guess if a point is above or below a randomly generated line and generates a visualization based on graphs to see how the neural network is learning through time.</p>
-
-<p>The neuron has 3 inputs and weights to calculate its output:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input 1 is the X coordinate of the point,
-Input 2 is the y coordinate of the point,
-Input 3 is the bias and it is always 1
-
-Input 3 or the bias is required for lines that do not cross the origin (0,0)
-</code></pre></div></div>
-
-<p>The Perceptron starts with weights all set to zero and learns by using 1,000 random points per each iteration.</p>
-
-<p>The output of the perceptron is calculated with the following activation function:
-    if x * weight_x + y weight_y + weight_bias is positive then 1 else 0</p>
-
-<p>The error for each point is calculated as the expected outcome of the perceptron minus the real outcome therefore there are only 3 possible error values:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Expected</th>
-      <th style="text-align: center">Calculated</th>
-      <th style="text-align: center">Error</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">-1</td>
-      <td style="text-align: center">1</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">-1</td>
-      <td style="text-align: center">-1</td>
-      <td style="text-align: center">0</td>
-    </tr>
-    <tr>
-      <td style="text-align: center">-1</td>
-      <td style="text-align: center">1</td>
-      <td style="text-align: center">-1</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>With every point that is learned if the error is not 0 the weights are adjusted according to:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New_weight = Old_weight + error * input * learning_rate
-for example: New_weight_x = Old_weight_x + error * x * learning rate
-</code></pre></div></div>
-
-<p>A very useful parameter in all of neural networks is teh learning rate, which is basically a measure on how tiny our nudge to the weights is going to be.</p>
-
-<p>In this particular case, I coded the learning_rate to decrease with every iteration as follows:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>learning_rate = 0.01 / (iteration + 1)
-</code></pre></div></div>
-
-<p>this is important to ensure that once the weights are nearing the optimal values the adjustment in each iteration is subsequently more subtle.</p>
-
-<center><img src="./assets/img/posts/20210125/Learning_1000_points_per_iteration.jpg" /></center>
-
-<p>In the end, the perceptron always converges into a solution and finds with great precision the line we are looking for.</p>
-
-<p>Perceptrons are quite a revelation in that they can resolve equations by learning, however they are very limited. By their nature they can only resolve linear equations, so their problem space is quite narrow.</p>
-
-<p>Nowadays the neural networks consist of combinations of many perceptrons, in many layers, and other types of “neurons”, like convolution, recurrent, etc. increasing significantly the types of problems they solve.</p>]]></content><author><name>Armando Maynez</name></author><category term="machine learning" /><category term="coding" /><category term="neural networks" /><summary type="html"><![CDATA[Single neuron perceptron that classifies elements learning quite quickly.]]></summary></entry></feed>
+<p>I&nbsp;found it very interesting to implement the Game of Life like this, it was quite a refreshing challenge and I am beginning to feel my coding skills ramping up again.</p>]]></content><author><name>Armando Maynez</name></author><category term="coding" /><category term="python" /><summary type="html"><![CDATA[Taking on the challenge of picking up coding again through interesting small projects, this time it is the turn of Conway's Game of Life.]]></summary></entry></feed>

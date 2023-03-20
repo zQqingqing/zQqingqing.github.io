@@ -76,15 +76,16 @@ $$V=\int p_{ij}(X-\bar X)(X-\bar X)^T$$
 $Z=AX$, $V_z=AV_XA^T$ 
 
 Example:  
-
 $A=\begin{bmatrix}
-	1 & 1  \\
-\end{bmatrix}$ ,  $Z=X+Y$  
+1 & 1 \
+\end{bmatrix}$ , $Z=X+Y$
 
-$$\sigma_z^2=\begin{bmatrix}1&1 \end{bmatrix}\begin{bmatrix}\sigma_x^2&\sigma_{xy}\\\sigma_{xy}& \sigma_y^2 \end{bmatrix}\begin{bmatrix}1\\1 \end{bmatrix}=\sigma_x^2+\sigma_y^2+2\sigma_{xy}$$
+The variance of $Z$, denoted as $\sigma_z^2$, can be computed as:
+
+$$\begin{bmatrix}1&1 \end{bmatrix}\begin{bmatrix}\sigma_x^2&\sigma_{xy}\\\sigma_{xy}& \sigma_y^2 \end{bmatrix}\begin{bmatrix}1\\1 \end{bmatrix}=\sigma_x^2+\sigma_y^2+2\sigma_{xy}$$
+#### The Correlation $\rho$
+The correlation coefficient between $X$ and $Y$ is denoted as $\rho_{xy}$, and it satisfies the following inequality:
+$$-1\le \rho _{xy}=\frac{\sigma_{xy}}{\sigma_x\sigma_y} \le1$$
+We can standardize $X$ and $Y$ by dividing them with their respective standard deviations, i.e., $X=\frac{x}{\sigma_x}$ and $Y=\frac{y}{\sigma_y}$, so that they have zero mean and unit variance. The correlation coefficient $\rho_{xy}$ remains the same after standardization.
 
 
-#### The Correlation $\rho$  
-Correlation $\rho _{xy}$  
-$$-1\le \rho _{xy}=\frac{\sigma_{xy}}{\sigma_x\sigma_y} \le1$$  
-Standardize $X=\frac{x}{\sigma_x}$, $Y=\frac{y}{\sigma_y}$,$\rho_{xy}=$ covariance of X and Y.  
