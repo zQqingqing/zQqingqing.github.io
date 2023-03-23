@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-20T22:08:25+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Least Squares (pseudoinverse)</title><link href="http://localhost:4000/untitled.html" rel="alternate" type="text/html" title="Least Squares (pseudoinverse)" /><published>2023-03-20T09:30:20+08:00</published><updated>2023-03-20T09:30:20+08:00</updated><id>http://localhost:4000/untitled</id><content type="html" xml:base="http://localhost:4000/untitled.html"><![CDATA[<h1 id="least-squares">Least Squares</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-03-20T22:12:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">zQqingqing’s Personal Blog</title><subtitle>Artificial Intelligence trends and concepts made easy.</subtitle><author><name>Hanqing Shi</name></author><entry><title type="html">Least Squares (pseudoinverse)</title><link href="http://localhost:4000/untitled.html" rel="alternate" type="text/html" title="Least Squares (pseudoinverse)" /><published>2023-03-20T09:30:20+08:00</published><updated>2023-03-20T09:30:20+08:00</updated><id>http://localhost:4000/untitled</id><content type="html" xml:base="http://localhost:4000/untitled.html"><![CDATA[<h1 id="least-squares">Least Squares</h1>
 
 <p>This is note1 based on  <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
 
@@ -35,62 +35,7 @@ $A^+$: Column space to row space<br />
 <h5 id="the-least-squares-solution-to-axb-is-x--ab">The Least Squares Solution to $Ax=b$ is $x^+ = A^+B$</h5>
 <p>properties:<br />
 $x^+=A^+b$ makes $||b-Ax||^2$ as small as possible.<br />
-If another $\hat x$ achieves then $||x^+||\le||\hat x||$ (Minimum norm)</p>
-
-<p>We’re going to demonstrate these properties.<br />
-<strong>Squared error</strong></p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$</td>
-      <td> </td>
-      <td>b-Ax</td>
-      <td> </td>
-      <td>^2=</td>
-      <td> </td>
-      <td>b-U\Sigma V^Tx</td>
-      <td> </td>
-      <td>^2=</td>
-      <td> </td>
-      <td>U^Tb-\Sigma V^Tx</td>
-      <td> </td>
-      <td>^2$ (since U^TU=I, multiply by U^T doesn’t change its length)</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Set $w=V^Tx$ to get $</td>
-      <td> </td>
-      <td>U^Tb-\Sigma w</td>
-      <td> </td>
-      <td>^2$, and the best $w=\Sigma ^+U^T b$ which leads to $x^+ = A^+b$</td>
-    </tr>
-  </tbody>
-</table>
-
-<table>
-  <tbody>
-    <tr>
-      <td>When A has rank r=n, this is the only least square solution. But if there are nonezero vectors x in the nullspace of A (which implies r &lt; n), they can be added to x^+. the error</td>
-      <td> </td>
-      <td>b-A(x+x^+)</td>
-      <td> </td>
-      <td>is not affected because Ax = 0. But the norm will grow to $</td>
-      <td> </td>
-      <td>x^+</td>
-      <td> </td>
-      <td>^2+</td>
-      <td> </td>
-      <td>x</td>
-      <td> </td>
-      <td>^2.$</td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>zQqingqing</name></author><category term="Least Squares" /><summary type="html"><![CDATA[Least Squares and the first way to solve it.]]></summary></entry><entry><title type="html">Statistics Note3</title><link href="http://localhost:4000/statistics-note3.html" rel="alternate" type="text/html" title="Statistics Note3" /><published>2023-01-29T09:30:20+08:00</published><updated>2023-01-29T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note3</id><content type="html" xml:base="http://localhost:4000/statistics-note3.html"><![CDATA[<h1 id="statistics">Statistics</h1>
+If another $\hat x$ achieves then $||x^+||\le||\hat x||$ (Minimum norm)</p>]]></content><author><name>zQqingqing</name></author><category term="Least Squares" /><summary type="html"><![CDATA[Least Squares and the first way to solve it.]]></summary></entry><entry><title type="html">Statistics Note3</title><link href="http://localhost:4000/statistics-note3.html" rel="alternate" type="text/html" title="Statistics Note3" /><published>2023-01-29T09:30:20+08:00</published><updated>2023-01-29T09:30:20+08:00</updated><id>http://localhost:4000/statistics-note3</id><content type="html" xml:base="http://localhost:4000/statistics-note3.html"><![CDATA[<h1 id="statistics">Statistics</h1>
 
 <p>This is note3 based on  <em>Linear Algebra And Learning From Data</em> by <em>Gilbert Strang</em>.</p>
 
