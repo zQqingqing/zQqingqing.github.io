@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  Target Tracking Project
-date:   2024-07-21 12:30:20 -0600
+date:   2024-07-21 01:30:20 -0600
 description: We designed image processing and control algorithms for a two-degree-of-freedom laser workbench equipped with a monocular camera, enabling stepper motor control for target identification and tracking.
 tags: [project]
 author: zQqingqing
