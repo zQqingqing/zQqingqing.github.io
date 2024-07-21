@@ -2,17 +2,17 @@
 layout: post
 read_time: true
 show_date: true
-title:  6-DOF Robotic-arm Sorting Project
+title:  6-DOF Robotic Arm Sorting Project
 date:   2024-07-21 01:30:20 -0600
-description: We developed forward and inverse kinematics and trajectory planning algorithms for a six-degree-of-freedom robotic arm platform, achieving dart positioning and transportation.
+description: We developed forward and inverse kinematics and trajectory planning algorithms for a 6 dof robotic arm platform, achieving dart positioning and transportation.
 tags: [project]
 author: zQqingqing
 img: posts/20240721/robot.jpg
 ---
 
-# Target Tracking Project
+# 6-DOF Robotic Arm Sorting Project
 
-We developed forward and inverse kinematics and trajectory planning algorithms for a six-degree-of-freedom robotic arm platform, achieving dart positioning and transportation.
+We developed forward and inverse kinematics and trajectory planning algorithms for a 6 dof robotic arm platform, achieving dart positioning and transportation.
 
 ## Task specification
 1. Taking a photo of the plane and get their position(not shown in video).
