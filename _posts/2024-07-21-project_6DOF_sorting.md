@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title:  Target Tracking Project
+title:  6-DOF Robotic-arm Sorting Project
 date:   2024-07-21 01:30:20 -0600
 description: We developed forward and inverse kinematics and trajectory planning algorithms for a six-degree-of-freedom robotic arm platform, achieving dart positioning and transportation.
 tags: [project]
