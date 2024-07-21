@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  6-DOF Robotic Arm Sorting Project
-date:   2024-07-21 01:30:20 -0600
+date:   2024-07-21 02:30:20 -0600
 description: We developed forward and inverse kinematics and trajectory planning algorithms for a 6 dof robotic arm platform, achieving dart positioning and transportation.
 tags: [project]
 author: zQqingqing
